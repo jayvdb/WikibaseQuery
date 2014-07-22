@@ -32,10 +32,13 @@ class EntitiesByPropertyValue extends \ApiBase {
 			);
 		}
 
+		$entities = $this->serializeEntityIds( $this->getEntityIds() );
+		$this->getResult()->setIndexedTagName( $entities, 'entity' );
+
 		$this->getResult()->addValue(
 			null,
 			'entities',
-			$this->serializeEntityIds( $this->getEntityIds() )
+			$entities
 		 );
 	}
 
